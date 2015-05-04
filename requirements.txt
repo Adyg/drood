@@ -1,5 +1,4 @@
 Django==1.8.1
-apt-xapian-index==0.45
 argparse==1.2.1
 boto==2.38.0
 chardet==2.0.1
