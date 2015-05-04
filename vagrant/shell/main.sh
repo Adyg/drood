@@ -65,6 +65,8 @@ elif [ "${FOUND_APT}" -eq '0' ]; then
 
   apt-get -q -y update
 
+  # install the heroku toolbelt
+
   # Make sure Git is installed
   if [ "$FOUND_GIT" -ne '0' ]; then
     echo 'Attempting to install Git.'
