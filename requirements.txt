@@ -9,8 +9,6 @@ django-require-s3==1.0.0
 django-storages==1.1.8
 html5lib==0.999
 psycopg2==2.6
-python-apt==0.9.3.5ubuntu1
-python-debian==0.1.21-nmu2ubuntu2
 pytz==2015.2
 requests==2.2.1
 urllib3==1.7.1
