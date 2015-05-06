@@ -1,17 +1,48 @@
-.DS_Store
+# Static files
+assets
+
+# virtualenv
+venv
+
+# Python bytecode:
+*.py[co]
+
+# Packaging files:
+*.egg*
+
+# Sphinx docs:
+build
+
+# SQLite3 database files:
+*.db
+
+# Logs:
+*.log
+
+# Eclipse
 .project
 .pydevproject
 .settings
-*.pyc
-*.pyo
-.bzr
-.bzrignore
+
+# Linux Editors
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+*.swp
+*.swo
+
+# Mac
+.DS_Store
+._*
+
+# Windows
 Thumbs.db
-/dist
-/build
-/MANIFEST
-/venv
-/.env
-/static
-/media
-/.anvil
+Desktop.ini
+
+# Vagrant
+.vagrant

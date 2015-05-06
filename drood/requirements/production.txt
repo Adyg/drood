@@ -1,0 +1,7 @@
+# Pro-tip: Try not to put anything here. There should be no dependency in
+#	production that isn't in development.
+-r base.txt
+
+gevent==1.0.1
+newrelic==2.50.0.39
+waitress==0.8.9
