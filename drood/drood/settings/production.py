@@ -10,7 +10,8 @@ from .base import *
 
 import dj_database_url
 
-from S3 import CallingFormat
+#from S3 import CallingFormat
+from boto.s3.connection import OrdinaryCallingFormat
 
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.
@@ -97,7 +98,8 @@ INSTALLED_APPS += (
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+#AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+AWS_S3_CALLING_FORMAT = OrdinaryCallingFormat()
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID', '')
