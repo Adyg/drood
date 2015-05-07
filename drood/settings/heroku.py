@@ -18,13 +18,16 @@ from boto.s3.connection import OrdinaryCallingFormat
 from django.core.exceptions import ImproperlyConfigured
 
 
-def get_env_setting(setting):
+def get_env_setting(setting, default_value=False):
     """ Get the environment setting or return exception """
     try:
         return environ[setting]
     except KeyError:
-        error_msg = "Set the %s env variable" % setting
-        raise ImproperlyConfigured(error_msg)
+        if default_value:
+            return default_value
+        else:
+            error_msg = "Set the %s env variable" % setting
+            raise ImproperlyConfigured(error_msg)
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
@@ -33,7 +36,6 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS += (
     'waitress',
-    'gevent',
 )
 
 ########## EMAIL CONFIGURATION
@@ -81,7 +83,8 @@ SECRET_KEY = get_env_setting('SECRET_KEY')
 ########## END SECRET CONFIGURATION
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = get_env_setting('STATIC_ROOT', 'staticfiles')
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
