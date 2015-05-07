@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Based on original code from: https://github.com/purple52/librarian-puppet-vagrant
+
 # Check the received options in order to set up some variables
 PREFER_PACKAGE=1
 while getopts ":g" opt; do
@@ -23,10 +25,6 @@ $(which git > /dev/null 2>&1)
 FOUND_GIT=$?
 $(which librarian-puppet > /dev/null 2>&1)
 FOUND_LP=$?
-$(which apt-get > /dev/null 2>&1)
-FOUND_APT=$?
-$(which yum > /dev/null 2>&1)
-FOUND_YUM=$?
 
 InstallLibrarianPuppetGem () {
   echo 'Attempting to install librarian-puppet gem.'
@@ -46,56 +44,36 @@ InstallLibrarianPuppetGem () {
   echo 'Librarian-puppet gem installed.'
 }
 
-if [ "${FOUND_YUM}" -eq '0' ]; then
+# install the heroku toolbelt
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
-  # Make sure Git is installed
-  if [ "$FOUND_GIT" -ne '0' ]; then
-    echo 'Attempting to install Git.'
-    yum -q -y makecache
-    yum -q -y install git
-    echo 'Git installed.'
-  fi
+apt-get -q -y update
 
-  # Make sure librarian-puppet is installed
-  if [ "$FOUND_LP" -ne '0' ]; then
+# Make sure Git is installed
+if [ "$FOUND_GIT" -ne '0' ]; then
+  echo 'Attempting to install Git.'
+  apt-get -q -y install git
+  echo 'Git installed.'
+fi
+
+# Make sure librarian-puppet is installed
+if [ "$FOUND_LP" -ne '0' ]; then
+  if [ "$PREFER_PACKAGE" -eq 1 -a -n "$(apt-cache search librarian-puppet)" ]; then
+     apt-get -q -y install librarian-puppet
+     echo 'Librarian-puppet installed from package'
+  else
+    dpkg -s ruby-json >/dev/null 2>&1
+    if [ $? -ne 0 -a -n "$(apt-cache search ruby-json)" ]; then
+      # Try and install json dependency from package if possible
+      apt-get -q -y install ruby-json
+    else
+      echo 'The ruby_json package was not installed (maybe, it was present). Attempting to install librarian-puppet anyway.'
+    fi
+    if [ -n "$(apt-cache search ruby1.9.1-dev)" ]; then
+      apt-get -q -y install ruby1.9.1-dev
+    fi
     InstallLibrarianPuppetGem
   fi
-
-elif [ "${FOUND_APT}" -eq '0' ]; then
-
-  apt-get -q -y update
-
-  # install the heroku toolbelt
-
-  # Make sure Git is installed
-  if [ "$FOUND_GIT" -ne '0' ]; then
-    echo 'Attempting to install Git.'
-    apt-get -q -y install git
-    echo 'Git installed.'
-  fi
-
-  # Make sure librarian-puppet is installed
-  if [ "$FOUND_LP" -ne '0' ]; then
-    if [ "$PREFER_PACKAGE" -eq 1 -a -n "$(apt-cache search librarian-puppet)" ]; then
-       apt-get -q -y install librarian-puppet
-       echo 'Librarian-puppet installed from package'
-    else
-      dpkg -s ruby-json >/dev/null 2>&1
-      if [ $? -ne 0 -a -n "$(apt-cache search ruby-json)" ]; then
-        # Try and install json dependency from package if possible
-        apt-get -q -y install ruby-json
-      else
-        echo 'The ruby_json package was not installed (maybe, it was present). Attempting to install librarian-puppet anyway.'
-      fi
-      if [ -n "$(apt-cache search ruby1.9.1-dev)" ]; then
-        apt-get -q -y install ruby1.9.1-dev
-      fi
-      InstallLibrarianPuppetGem
-    fi
-  fi
-
-else
-  echo 'No supported package installer available. You may need to install git and librarian-puppet manually.'
 fi
 
 if [ ! -d "$PUPPET_DIR" ]; then

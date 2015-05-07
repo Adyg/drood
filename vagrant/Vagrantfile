@@ -15,8 +15,6 @@ Vagrant.configure("2") do |config|
   
     drood_config.vm.provision :shell do |shell|
       shell.path = "shell/main.sh"
-    # uncomment the next line if you want to install the librarian-ruby gem instead the package
-    #  shell.args = "-g"
     end
 
     drood_config.vm.provision :puppet do |puppet|
