@@ -47,3 +47,4 @@ Desktop.ini
 # Vagrant
 /.vagrant
 vagrant/.vagrant
+.vagrant/
