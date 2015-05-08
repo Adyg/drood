@@ -48,3 +48,4 @@ Desktop.ini
 /.vagrant
 vagrant/.vagrant
 .vagrant/
+.vagrant/*
