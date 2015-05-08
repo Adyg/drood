@@ -45,8 +45,4 @@ Thumbs.db
 Desktop.ini
 
 # Vagrant
-/.vagrant
-vagrant/.vagrant/
-.vagrant/
-.vagrant/*
 .vagrant/
