@@ -1,0 +1,6 @@
+{{active_feed_id}}
+{% for feed in feeds %}
+    <li class="collection {% if active_feed.id = feed.id %}collection-active{% endif %}">
+        <a href="{% url 'home-feed' feed_id=feed.id %}">{{feed}}</a>
+    </li>
+{% endfor %}

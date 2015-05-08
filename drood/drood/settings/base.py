@@ -89,7 +89,7 @@ MEDIA_URL = '/media/'
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
-print STATIC_ROOT
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
 
@@ -206,6 +206,10 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'drood',
+    'article',
+    'feed',
+    'reader',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

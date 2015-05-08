@@ -1,0 +1,263 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "variables/**/*";
+
+html,
+body,
+main {
+    min-height: 100%;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+body {
+    @include clearfix;
+    font-family: sans-serif, Helvetica, Arial;
+    color: $darkGrey;
+}
+
+main,
+nav {
+    @include grid-span(12, 1);
+}
+
+main {
+    @include clearfix;
+    background: $lightGrey;
+    padding: 2em;
+    color: $darkGrey;
+}
+
+header {
+    @include grid-span(12, 1);
+    border-bottom: 1px solid $mediumGrey;
+    border-left: 1px solid $mediumGrey;    
+    text-align: right;
+    position: relative;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1.5;
+    padding: 0.5em;
+
+    .menu-trigger {
+        width: 60px;
+        height: 40px;
+        line-height: 40px;        
+        border-right: 1px solid $mediumGrey;
+        position: absolute;
+        top: 0;
+        font-size: 0.8em;
+        left: 0;
+        text-align: center;
+
+        &:hover {
+            background: $navHover;
+        }      
+
+        &:active {
+            background: $navActive;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: $navGrey;
+    }
+}
+
+nav {
+    display: none;
+    text-align: center;
+    color: $navGrey;
+    font-size: 0.8em;
+
+    .navigation-header {
+        display: none;
+        font-weight: 600;
+        font-size: 1em;
+        line-height: 1.5;
+        padding: 0.82em; 
+        border-bottom: 1px solid $mediumGrey;
+    }
+
+    .search {
+        margin: 2em 0;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    input {
+        width: 90%;
+    }
+
+    a {
+        text-decoration: none;
+        color: $navGrey;   
+
+        &:hover {
+            background: $navHover;
+        }      
+
+        &:active {
+            background: $navActive;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    li.collection {
+        a {
+            border-bottom: 1px solid $mediumGrey;
+            display: block;
+            padding: 1em;
+        }
+    }
+
+    li.collection-active {
+        background: $lightGrey;
+    }
+}
+
+.pager {
+    @include clearfix;
+    text-align: center;
+
+    a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        margin: 0 20px;
+        background-position: 0px 0px;
+
+        &:hover {
+            background-position: 0px -44px;
+        }
+    }
+
+    .pager-next {
+        background: url(../images/paginator_right.png) no-repeat;
+    }
+
+    .pager-previous {
+        background: url(../images/paginator_left.png) no-repeat;
+    }    
+}
+
+.article {
+    @include clearfix;
+    background: $articleBackground;
+    border: 1px solid $mediumGrey;
+    padding: 10px;
+    margin-bottom: 1em;
+
+    .image_holder {
+        @include grid-span(12, 1);
+        text-align: center;
+        max-height: 150px;
+        margin-bottom: 10px;
+
+        img {
+            margin: 0 auto;
+        }
+    }
+    .text_holder {
+        @include grid-span(12, 1);
+        font-size: 0.8em;
+        line-height: 1.3em;
+        color: $navGrey;
+
+        * {
+            font-size: 1em;
+            line-height: 1.3em;
+            color: $navGrey;
+        }
+
+        .raw_text {
+            img {
+                max-height: 550px;
+                margin: 10px auto;
+            }
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 1.1em;
+
+            a {
+                text-decoration: none;
+                color: $darkGrey;
+                text-transform: capitalize;
+            }
+        }
+
+        p.info {
+            text-align: right;
+            line-height: 0.7em;
+            font-size: 0.7em;
+        }
+
+        p.summary {
+            margin: 20px 0;
+
+            a {
+                text-decoration: none;
+                color: $navGrey;
+            }
+        }
+    }    
+}
+
+nav.navigation-active {
+    display: block;
+}
+
+@include breakpoint($medium, true) {
+    header {
+        @include grid-span(10, 3);
+
+        .menu-trigger {
+            display: none;
+        }
+    }
+
+    nav {
+        @include grid-span(2, 1);
+        display: block;
+        height: 100%;
+
+        .navigation-header {
+            display: block;
+        }
+    }
+
+    main {
+        @include grid-span(10, 3);
+        border-left: 1px solid $mediumGrey;        
+    }
+
+    .article {
+        .image_holder {
+            @include grid-span(3, 1);
+        }
+        .text_holder {
+            @include grid-span(9, 4);
+            padding: 0 15px;
+        }    
+    }    
+}
