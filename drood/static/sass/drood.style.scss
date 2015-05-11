@@ -17,7 +17,6 @@ img {
 }
 
 body {
-    @include clearfix;
     font-family: sans-serif, Helvetica, Arial;
     color: $darkGrey;
 }

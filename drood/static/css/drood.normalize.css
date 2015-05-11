@@ -225,3 +225,9 @@ table {
 td,
 th {
   padding: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.normalize\.scss}line{font-family:\000039}}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }

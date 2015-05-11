@@ -23,7 +23,7 @@ path.append(DJANGO_ROOT)
 
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = False
+DEBUG = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
@@ -35,6 +35,8 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Your Name', 'your_email@example.com'),
 )
+
+SECRET_KEY = 'asdasddfqfgnubnfpabewg;apui4ebgp0297g3w9g9a-4hg'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
@@ -194,7 +196,7 @@ DJANGO_APPS = (
 
 # Third party apps
 THIRD_PARTY_APPS = (
-    # Sorl
+    # Thumbnail
     'sorl.thumbnail',
 
     # Crispy
@@ -255,5 +257,4 @@ LOGGING = {
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
 
-# Sorl
-THUMBNAIL_DEBUG = False
+THUMBNAIL_DEBUG = True

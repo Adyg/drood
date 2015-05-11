@@ -27,7 +27,7 @@ def list(request, feed_id=False):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         articles = paginator.page(paginator.num_pages)
-    print feed
+
     return render(request, 'list.html', {
         'articles': articles,
         'page': page,

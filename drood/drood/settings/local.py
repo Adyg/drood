@@ -47,5 +47,7 @@ CACHES = {
 ########## END CACHE CONFIGURATION
 
 # http://django-debug-toolbar.readthedocs.org/en/latest/installation.html
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1', '::', 'localhost')
 ########## END TOOLBAR CONFIGURATION
+
+THUMBNAIL_DEBUG = True

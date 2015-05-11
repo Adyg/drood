@@ -9,9 +9,10 @@ Vagrant.configure("2") do |config|
     # Forward a port from the guest to the host, which allows for outside
     # computers to access the VM, whereas host only networking does not.
     drood_config.vm.network :forwarded_port, host: 9171, guest: 8001	
+    drood_config.vm.boot_timeout = 600
 
     drood_config.vm.synced_folder "../", "/vagrant", id: "1",
-          mount_options: ["dmode=775", "fmode=764"]
+          mount_options: ["dmode=777", "fmode=777"]
   
     drood_config.vm.provision :shell do |shell|
       shell.path = "shell/main.sh"

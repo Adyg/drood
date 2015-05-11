@@ -1,8 +1,10 @@
-{% load staticfiles truncate_smart %}
+{% load staticfiles truncate_smart thumbnail %}
 <section class="article">
     <div class="image_holder">
         {% if article.thumbnail %}
-            <img src="{{article.thumbnail.src}}" />
+            {% thumbnail article.thumbnail "x139" as im %}
+                <img src="{{im.url}}" />
+            {% endthumbnail %}
         {% endif %}
     </div>
     <div class="text_holder">
@@ -12,7 +14,7 @@
             {{article.publication_date}}
         </p>
         <p class="summary">
-            {{article.summary|truncate_smart:250|safe}}
+            {{article.summary|truncate_smart:450|safe}}
         </p>
     </div>
 </section> 

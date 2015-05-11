@@ -22,7 +22,8 @@ class Article(models.Model):
         media = ArticleMedia.objects.filter(article=self)
 
         if media:
-            return media[0]
+            print media[0].src
+            return media[0].src
 
         return False
 
