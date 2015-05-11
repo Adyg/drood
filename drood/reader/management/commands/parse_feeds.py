@@ -16,6 +16,7 @@ from drood.utils import _remove_attrs
 class Command(NoArgsCommand):
 
     def handle_noargs(self, **options):
+        IGNORED_MEDIA_HOSTS = ['feedburner.com', ]
         feeds = Feed.objects.all()
 
         for feed in feeds:
@@ -83,9 +84,14 @@ class Command(NoArgsCommand):
                     added_article.save()
 
                     if extracted_media:
-                        added_media = ArticleMedia(
-                            article=added_article,
-                            src=extracted_media
-                        )
+                        valid = True
+                        for ignored_domain in IGNORED_MEDIA_HOSTS:
+                            if ignored_domain in extracted_media:
+                                valid = False
+                        if valid:                                
+                            added_media = ArticleMedia(
+                                article=added_article,
+                                src=extracted_media
+                            )
 
                         added_media.save()

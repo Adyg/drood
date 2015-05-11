@@ -241,18 +241,22 @@ nav.navigation-active {
     clear: none;
     border-left: 1px solid #e8e8e8; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003254}}
-  .article .image_holder {
-    width: 23.72881%;
-    float: left;
-    margin-right: -100%;
-    margin-left: 0;
-    clear: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003253}}
+  .article {
+    max-width: 900px;
+    margin: 0 auto 1em auto; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003257}}
-  .article .text_holder {
-    width: 74.57627%;
-    float: right;
-    margin-left: 0;
-    margin-right: 0;
-    clear: none;
-    padding: 0 15px; } }
+    .article .image_holder {
+      width: 23.72881%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 0;
+      clear: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003260}}
+    .article .text_holder {
+      width: 74.57627%;
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
+      clear: none;
+      padding: 0 15px; } }

@@ -251,6 +251,9 @@ nav.navigation-active {
     }
 
     .article {
+        max-width: 900px;
+        margin: 0 auto 1em auto;
+
         .image_holder {
             @include grid-span(3, 1);
         }
