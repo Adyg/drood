@@ -212,6 +212,7 @@ LOCAL_APPS = (
     'article',
     'feed',
     'reader',
+    'user_profile',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -257,4 +258,4 @@ LOGGING = {
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
 
-THUMBNAIL_DEBUG = True
+CRISPY_TEMPLATE_PACK = 'uni_form'
