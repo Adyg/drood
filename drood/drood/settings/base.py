@@ -3,7 +3,23 @@
 
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
+from os import environ
 
+# Normally you should not import ANYTHING from Django directly
+# into your settings, but ImproperlyConfigured is an exception.
+from django.core.exceptions import ImproperlyConfigured
+
+
+def get_env_setting(setting, default_value=False):
+    """ Get the environment setting or return exception """
+    try:
+        return environ[setting]
+    except KeyError:
+        if default_value:
+            return default_value
+        else:
+            error_msg = "Set the %s env variable" % setting
+            raise ImproperlyConfigured(error_msg)
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -258,4 +274,32 @@ LOGGING = {
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
 
+######### CRISPY FORMS
 CRISPY_TEMPLATE_PACK = 'uni_form'
+######### END CRISPY FORMS
+
+########## CELERY CONFIGURATION
+# See: http://docs.celeryproject.org/en/latest/configuration.html#broker-transport
+# BROKER_TRANSPORT = 'amqplib'
+
+# Set this number to the amount of allowed concurrent connections on your AMQP
+# provider, divided by the amount of active workers you have.
+#
+# For example, if you have the 'Little Lemur' CloudAMQP plan (their free tier),
+# they allow 3 concurrent connections. So if you run a single worker, you'd
+# want this number to be 3. If you had 3 workers running, you'd lower this
+# number to 1, since 3 workers each maintaining one open connection = 3
+# connections total.
+#
+# See: http://docs.celeryproject.org/en/latest/configuration.html#broker-pool-limit
+BROKER_POOL_LIMIT = 3
+
+# See: http://docs.celeryproject.org/en/latest/configuration.html#broker-connection-max-retries
+BROKER_CONNECTION_MAX_RETRIES = 0
+
+# See: http://docs.celeryproject.org/en/latest/configuration.html#broker-url
+BROKER_URL = get_env_setting('REDIS_URL')
+
+# See: http://docs.celeryproject.org/en/latest/configuration.html#celery-result-backend
+CELERY_RESULT_BACKEND = BROKER_URL
+########## END CELERY CONFIGURATION
