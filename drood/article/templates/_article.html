@@ -1,5 +1,5 @@
 {% load staticfiles truncate_smart thumbnail %}
-<section class="article">
+<section class="article {% if article.thumbnail %}article_with_image{% endif %}">
     <div class="image_holder">
         {% if article.thumbnail %}
             {% thumbnail article.thumbnail "x139" as im %}

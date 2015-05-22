@@ -151,11 +151,7 @@ nav {
   margin-bottom: 1em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003168}}
   .article .image_holder {
-    width: 100%;
-    float: right;
-    margin-left: 0;
-    margin-right: 0;
-    clear: none;
+    display: none;
     text-align: center;
     max-height: 150px;
     margin-bottom: 10px; }
@@ -165,10 +161,6 @@ nav {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003178}}
   .article .text_holder {
     width: 100%;
-    float: right;
-    margin-left: 0;
-    margin-right: 0;
-    clear: none;
     font-size: 0.8em;
     line-height: 1.3em;
     color: #a3a3b1; }
@@ -203,23 +195,39 @@ nav {
         text-decoration: none;
         color: #a3a3b1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003225}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003226}}
+.article_with_image .image_holder {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003230}}
+.article_with_image .text_holder {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003235}}
 nav.navigation-active {
   display: block; }
 
 @media (min-width: 44em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003230}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003240}}
   header {
     width: 83.05085%;
     float: right;
     margin-left: 0;
     margin-right: 0;
     clear: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003233}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003243}}
     header .menu-trigger {
       display: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003238}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003248}}
   nav {
     width: 15.25424%;
     float: left;
@@ -228,11 +236,11 @@ nav.navigation-active {
     clear: none;
     display: block;
     height: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003243}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003253}}
     nav .navigation-header {
       display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003248}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003258}}
   main {
     width: 83.05085%;
     float: right;
@@ -241,22 +249,29 @@ nav.navigation-active {
     clear: none;
     border-left: 1px solid #e8e8e8; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003253}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003263}}
   .article {
     max-width: 900px;
     margin: 0 auto 1em auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003257}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003267}}
     .article .image_holder {
-      width: 23.72881%;
-      float: left;
-      margin-right: -100%;
-      margin-left: 0;
-      clear: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003260}}
+      display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003270}}
     .article .text_holder {
-      width: 74.57627%;
-      float: right;
-      margin-left: 0;
-      margin-right: 0;
-      clear: none;
-      padding: 0 15px; } }
+      padding: 0 15px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003276}}
+  .article_with_image .image_holder {
+    width: 23.72881%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0;
+    clear: none;
+    display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/drood\/static\/sass\/drood\.style\.scss}line{font-family:\00003280}}
+  .article_with_image .text_holder {
+    width: 74.57627%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none; } }

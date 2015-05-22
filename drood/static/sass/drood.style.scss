@@ -166,7 +166,7 @@ nav {
     margin-bottom: 1em;
 
     .image_holder {
-        @include grid-span(12, 1);
+        display: none;
         text-align: center;
         max-height: 150px;
         margin-bottom: 10px;
@@ -176,7 +176,7 @@ nav {
         }
     }
     .text_holder {
-        @include grid-span(12, 1);
+        width: 100%;
         font-size: 0.8em;
         line-height: 1.3em;
         color: $navGrey;
@@ -222,6 +222,16 @@ nav {
     }    
 }
 
+.article_with_image {
+    .image_holder {
+        @include grid-span(12, 1);
+        display: block;
+    }
+    .text_holder {
+        @include grid-span(12, 1);
+    }    
+}
+
 nav.navigation-active {
     display: block;
 }
@@ -255,11 +265,20 @@ nav.navigation-active {
         margin: 0 auto 1em auto;
 
         .image_holder {
+            display: none;
+        }
+        .text_holder {
+            padding: 0 15px;
+        }    
+    }   
+
+    .article_with_image {
+        .image_holder {
             @include grid-span(3, 1);
+            display: block;
         }
         .text_holder {
             @include grid-span(9, 4);
-            padding: 0 15px;
-        }    
-    }    
+        }
+    } 
 }
