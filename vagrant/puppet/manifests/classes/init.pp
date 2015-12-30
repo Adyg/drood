@@ -18,7 +18,7 @@ class init {
     }
 
     package {
-        ['build-essential', 'python', 'python-dev', 'python-virtualenv', 'libevent-dev', 'libpq-dev', 'libmemcached-dev', 'zlib1g-dev', 'libssl-dev', 'python-pip', 'libjpeg-dev', 'software-properties-common', 'ruby-dev']:
+        ['build-essential', 'python', 'python-dev', 'python-virtualenv', 'libevent-dev', 'libpq-dev', 'libmemcached-dev', 'zlib1g-dev', 'libssl-dev', 'python-pip', 'libjpeg-dev', 'software-properties-common', 'ruby-dev', 'libxml2-dev', 'libxslt1-dev',]:
         ensure => 'installed',
         require => Exec['apt-update'] # The system update needs to run first
     }

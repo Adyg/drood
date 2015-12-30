@@ -17,3 +17,4 @@ celery==3.1.18
 redis==2.10.3
 django-celery==3.1.16
 django-redis==4.0.0
+opml==0.5

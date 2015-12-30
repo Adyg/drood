@@ -7,3 +7,21 @@ class Feed(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @classmethod
+    def create(cls, name, url):
+        """
+        Add a new feed
+        """
+        feed = False
+
+        # prevent duplicate feeds from being added
+        try:
+            feed = cls.objects.get(url=url)
+        except:
+            pass
+
+        if not feed:
+            feed = cls.objects.create(name=name, url=url)
+
+        return feed

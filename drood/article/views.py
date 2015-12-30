@@ -15,7 +15,7 @@ def list(request, feed_id=False):
         articles = Article.objects.filter(feed=feed)
 
     if not articles:
-        articles = Article.objects.all()
+        articles = Article.objects.all().order_by('title', '?')
 
     paginator = Paginator(articles.order_by('-publication_date'), 20)
     page = request.GET.get('page')
